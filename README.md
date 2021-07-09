@@ -32,11 +32,12 @@ The NoDL &rarr; policy conversion method simply takes a NoDL description (type: 
 As such, the conversion API could be used programmatically as follows:
 
 ```python
-from nodl_to_python.policy import convert_to_policy
-
+import nodl_to_python
+# `nodl` module found in `nodl_python` package
 # obtain a NoDL description, either through `nodl.parse(<nodl_file_path>)` or otherwise
 
-policy = convert_to_policy(nodl_description)  # type(nodl_description) == List[nodl.Node]
+policy = nodl_to_python.convert_to_policy(nodl_description)  # type(nodl_description) == List[nodl.Node]
 
-# use policy, and/or output it using `nodl.dump_policy(policy, <output_stream>)`
+# use policy, and/or output it using either `nodl_to_python.print_policy(policy)`
+# or `sros2.policy.dump_policy(policy, <output_stream>)`
 ```
